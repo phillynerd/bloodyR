@@ -10,7 +10,7 @@
 #'  horror_cols['blood']
 
 # List of all main colors we use
-horror_cols <- c(vintageblood = 	"#9D1C05", 
+horror_cols <- c(vintageblood = 	"#9D1C05",
                  brightblood = "#CA2A1E",
                  blood = "#6C150A",
                  darkblood = "#470d01")
@@ -27,10 +27,10 @@ horror_cols <- c(vintageblood = 	"#9D1C05",
 
 horror_colors <- function(...) {
   cols <- c(...)
-  
+
   if (is.null(cols))
     return(horror_cols)
-  
+
   horror_cols[cols]
 }
 
@@ -52,7 +52,7 @@ horror_pals <- list(
   SOTL = c("#100C0B", "#371A16", 	"#470D01", "#7F3623", "#DCB8A2"),
   Exorcist = c(	"#0C0D11", 	"#12121C", "#242843", 	"#363C5C", "#626EA2", "#7E87C0", 	"#C3B2ED"),
   Suspiria = c("#0D0503", "#2A0A0B","#490C13","#CF2E4F","#CA5D7D", "#DEC6D4"),
-  NeonDemon_blue = c("#181D33", 	"#19334E", 	"#0C4C65", "#0A667D", 	"#0B899F", "#13A6C2"), 
+  NeonDemon_blue = c("#181D33", 	"#19334E", 	"#0C4C65", "#0A667D", 	"#0B899F", "#13A6C2"),
   NeonDemon_red = c("#0A0509", 	"#170B19", "#3C1019", "#641616"),
   GetOut = c("#16110E", "#240726", "#2B0820", "#431B40",	"#62238D", "#573895", "#3A5465"),
   #divergent
@@ -83,10 +83,10 @@ horror_pals <- list(
 
 horror_palettes <- function(palette = "GetOut", reverse = FALSE, ...) {
   pal <- horror_pals[[palette]]
-  
+
   if (reverse)
     pal <- rev(pal)
-  
+
   colorRampPalette(pal, ...)
 }
 
@@ -120,7 +120,7 @@ horror_palettes <- function(palette = "GetOut", reverse = FALSE, ...) {
 scale_color_horror <- function(palette = "Exorcist_Q", discrete = TRUE,
                            reverse = FALSE, ...) {
   pal <- horror_palettes(palette = palette, reverse = reverse)
-  
+
   if (discrete) {
     discrete_scale("color", paste0("horror_", palette), palette = pal,
                    ...)
@@ -151,7 +151,7 @@ scale_color_horror <- function(palette = "Exorcist_Q", discrete = TRUE,
 scale_fill_horror <- function(palette = "Exorcist_Q", discrete = TRUE, reverse = FALSE,
                           ...) {
   pal <- horror_palettes(palette = palette, reverse = reverse)
-  
+
   if (discrete) {
     discrete_scale("fill", paste0("horror_", palette), palette = pal,
                    ...)
@@ -160,7 +160,7 @@ scale_fill_horror <- function(palette = "Exorcist_Q", discrete = TRUE, reverse =
   }
 }
 
-#' show_me_the_palette
+#' the_palettes_have_eyes
 #'
 #' A function that will print the colors for any one of the available palettes.
 #' This function only works on a single palette at a time
@@ -175,30 +175,30 @@ scale_fill_horror <- function(palette = "Exorcist_Q", discrete = TRUE, reverse =
 
 
 
-show_me_the_palette <- function(palette) {
+the_palettes_have_eyes <- function(palette) {
   if(palette %in% c("Exorcist", "GetOut", "NeonDemon_blue",
-                    "NeonDemon_red", "TheShining", "SOTL", "Suspiria",  
-                     
+                    "NeonDemon_red", "TheShining", "SOTL", "Suspiria",
+
                     "Excision_Divergent","GetOut_Divergent","NeonDemon_Divergent",
-                    
-                    "DawnoftheDead_Q", "Excision_Q", "Nosferatu_Q", "Suspiria_Q", 
-                     "TexasChainsaw_Q", "Exorcist_Q", 
-                    
+
+                    "DawnoftheDead_Q", "Excision_Q", "Nosferatu_Q", "Suspiria_Q",
+                     "TexasChainsaw_Q", "Exorcist_Q",
+
                      "Greyscale")){
-    
+
     cols <- horror_pals[[palette]]
-    
+
     n_seq <- seq_along(cols)
-    
+
     image(n_seq, 1, as.matrix(n_seq), col = cols,
           xlab = "", ylab = "", xaxt = "n", yaxt = "n", bty = "n",
           main = paste0("Horror Palette: ", palette))
-    
+
     text(n_seq, 1, cols, col = "black", srt = 270)
   } else {stop("Invalid palette name entered. Must be: Exorcist, GetOut, NeonDemon_blue,
                     NeonDemon_red, TheShining, SOTL, Suspiria,
                     Excision_Divergent,GetOut_Divergent,NeonDemon_Divergent,
-                    DawnoftheDead_Q, Excision_Q, Exorcist_Q, Nosferatu_Q, Suspiria_Q, TexasChainsaw_Q,  
+                    DawnoftheDead_Q, Excision_Q, Exorcist_Q, Nosferatu_Q, Suspiria_Q, TexasChainsaw_Q,
                     Greyscale")}
 }
 
