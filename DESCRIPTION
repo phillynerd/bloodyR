@@ -1,0 +1,15 @@
+Package: bloodyR
+Type: Package
+Title: To Avoid Fainting, Keep Repeating "It's Only A Palette...It's Only A Palette"
+Version: 0.1.0
+Author: Jessica Streeter
+Maintainer: Jessica Streeter <jstreeter.rutgers@gmail.com>
+Description: A bunch of horror-movie inspired palettes.  Most of the palettes
+were inspired by @colorpalette.cinema (https://www.instagram.com/colorpalette.cinema/)
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Depends:
+  ggplot2 (>= 3.2.1)
+  
